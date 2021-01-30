@@ -51,6 +51,14 @@
                     <li class="nav-item">
                         @auth
                             <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                            <!-- Admin -->
+                            <!--                            
+                            <a >{{ Auth::user()->name }}</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();  this.closest('form').submit();">{{ __('Logout') }} </a>
+                            </form>
+                             -->
                         @else
                             <a href="{{ route('login') }}" class="nav-link">Login</a>
                         @if (Route::has('register'))
