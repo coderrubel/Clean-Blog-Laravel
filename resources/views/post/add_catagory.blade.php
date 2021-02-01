@@ -9,14 +9,15 @@
 <div class="container">
 <div class="row my-2 d-flex justify-content-center">
     <div class="col-md-8">
-    <form>
+    <form method="POST" action="/add_catagory">
+        @csrf
     <div class="form-group">
         <label for="exampleFormControlInput1">Catagory Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="cat_name">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Catagory Slug</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlInput2">Catagory Slug</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="cat_slug">
     </div>
     <div class="form-group">
         <input type="submit" class="form-control btn-success btn-sm" value="Submit">
