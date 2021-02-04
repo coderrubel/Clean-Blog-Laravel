@@ -22,7 +22,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                
                 <!-- Add Post -->
-                <x-jet-responsive-nav-link href="{{ url('/add_post')}}">
+                <x-jet-responsive-nav-link href="{{ url('/add_new_post')}}">
                     {{ __('Add Post') }}
                 </x-jet-responsive-nav-link>
                  <!-- Add Post -->

@@ -27,9 +27,10 @@ Route::get('/post',[page::class,'single_post']);
 
 
 /* Post */
-Route::get('/add_post',[post::class,'add_post']);
+Route::get('/add_new_post',[post::class,'add_post']);
+// Route::POST('/add_new_post',[post::class,'AddPost']);
 Route::get('/add_catagory',[post::class,'add_catagory']);
-Route::POST('/add_catagory',[post::class,'add_catagory']);
+Route::POST('/add_catagory',[post::class,'DataAdd']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
