@@ -13,14 +13,14 @@
         @csrf
     <div class="form-group">
         <label for="exampleFormControlInput1">Catagory Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="catName">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="catName" required>
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput2">Catagory Slug</label>
-        <input type="text" class="form-control" id="exampleFormControlInput2" name="slug">
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="slug" required>
     </div>
     <div class="form-group">
-        <input type="submit" class="form-control btn-success btn-sm" value="Submit">
+        <input type="submit" class="form-control btn-success btn-sm w-25 m-auto" value="Add Catagory">
     </div>
     </form>
     </div>

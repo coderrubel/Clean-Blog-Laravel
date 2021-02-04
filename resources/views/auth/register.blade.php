@@ -1,10 +1,25 @@
+<x-header/>
+    <!-- Page Header -->
+  <header class="masthead mb-0" style="background-image: url('img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Refister To Clean Blog</h1>
+            <span class="subheading">Have An Account? <a href="{{ route('login') }}"> Login </a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-jet-authentication-card class="mb-4">
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <!-- <x-jet-authentication-card-logo /> -->
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf

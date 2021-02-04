@@ -1,10 +1,24 @@
+<x-header/>
+    <!-- Page Header -->
+  <header class="masthead mb-0" style="background-image: url('img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Login To Dashboard</h1>
+            <span class="subheading">Don't Have An Account? <a href="{{ route('register') }}"> Register </a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 <x-guest-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+        <!-- <x-slot name="logo">
+        </x-slot> -->
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors/>
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">

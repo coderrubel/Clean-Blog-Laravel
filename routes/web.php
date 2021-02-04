@@ -26,9 +26,11 @@ Route::get('/about',[page::class,'about']);
 Route::get('/post',[page::class,'single_post']);
 
 
-/* Post */
+// post
 Route::get('/add_new_post',[post::class,'add_post']);
-// Route::POST('/add_new_post',[post::class,'AddPost']);
+Route::POST('/add_new_post',[post::class,'AddPost']);
+
+// Catagory
 Route::get('/add_catagory',[post::class,'add_catagory']);
 Route::POST('/add_catagory',[post::class,'DataAdd']);
 
