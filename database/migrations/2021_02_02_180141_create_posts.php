@@ -16,9 +16,10 @@ class CreatePosts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image')->default('Post Image');
             $table->string('details');
-            $table->string('author')->nullable();
-            $table->date('date')->nullable();
+            $table->string('author');
+            $table->date('date');
             $table->timestamps();
         });
     }

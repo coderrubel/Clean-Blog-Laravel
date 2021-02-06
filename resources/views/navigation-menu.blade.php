@@ -22,13 +22,13 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                
                 <!-- Add Post -->
-                <x-jet-responsive-nav-link href="{{ url('/add_new_post')}}">
+                <x-jet-nav-link class="pt-4 pb-3 m-3"  href="{{ url('/add_new_post')}}">
                     {{ __('Add Post') }}
-                </x-jet-responsive-nav-link>
+                </x-jet-nav-link >
                  <!-- Add Post -->
-                <x-jet-responsive-nav-link href="{{ url('/add_catagory')}}">
+                <x-jet-nav-link class="pt-4 pb-3 m-3" href="{{ url('/add_catagory')}}">
                     {{ __('Add Cagagory') }}
-                </x-jet-responsive-nav-link>
+                </x-jet-nav-link >
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">

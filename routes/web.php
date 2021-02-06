@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\page;
 use App\Http\Controllers\post;
-use App\Http\Controllers\poscatagoryt;
+use App\Http\Controllers\catagory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +31,8 @@ Route::get('/add_new_post',[post::class,'add_post']);
 Route::POST('/add_new_post',[post::class,'AddPost']);
 
 // Catagory
-Route::get('/add_catagory',[post::class,'add_catagory']);
-Route::POST('/add_catagory',[post::class,'DataAdd']);
+Route::get('/add_catagory',[catagory::class,'add_catagory']);
+Route::POST('/add_catagory',[catagory::class,'AddCatagory']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
