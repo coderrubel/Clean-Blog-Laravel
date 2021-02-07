@@ -9,8 +9,9 @@ class catagory extends Controller
 {
     // Add Catagorys
     function add_catagory(){
+    //    $category=DB::table('catagorys')->get();
+    //    return view('post.add_catagory',compact('category'));
         return view('post.add_catagory');
-        
     }
 
         

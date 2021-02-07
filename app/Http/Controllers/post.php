@@ -10,10 +10,9 @@ class post extends Controller
 
     // Add Posts
      function add_post(){
-        $category=DB::table('catagorys')->get();
         return view('post.add_post');
     }
-    
+    // Add Post
     function AddPost(Request $request){
 
         $request->validate([
@@ -29,8 +28,6 @@ class post extends Controller
         $post['details']=$request->details;
         $post['author']=$request->author;
         $post['date']=$request->date;
-
-        
 
         $image=$request->file('image');
     	if ($image) {
@@ -61,7 +58,8 @@ class post extends Controller
         //     'messege'=>'Successfully Post Inserted',
         //     'alert-type'=>'success'
         //      );
-        return view('post.add_post');
+        $allpost['allpost']=DB::table('posts')->get();
+        return view('dashboard');
     }
     
 }

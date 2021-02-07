@@ -7,9 +7,20 @@
     
 <x-dashboard_heder/>
 <div class="container">
-<div class="row my-2 d-flex justify-content-center">
-    <div class="col-md-8">
-    
+<div class="row my-2 d-flex justify-content-between">
+<div class="col-md-5">
+        <table class="table table-hover w-100">
+            <tr>
+                <th>Name</th>
+                <th>Slug</th>
+            </tr>
+            <tr>
+                <td>as</td>
+                <td>as</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
     <!-- Message -->
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -36,6 +47,8 @@
     </div>
     </form>
     </div>
+        
+
 </div>
 </div>
   
