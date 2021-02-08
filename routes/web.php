@@ -28,6 +28,7 @@ Route::get('/post',[page::class,'single_post']);
 
 // post
 Route::get('/add_new_post',[post::class,'add_post']);
+Route::get('/all_post',[post::class,'allPost']);
 Route::POST('/add_new_post',[post::class,'AddPost']);
 
 // Catagory

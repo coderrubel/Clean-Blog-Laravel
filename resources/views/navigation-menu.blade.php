@@ -22,6 +22,10 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                
                 <!-- Add Post -->
+                <x-jet-nav-link class="pt-4 pb-3 m-3"  href="{{ url('/all_post')}}">
+                    {{ __('All Post') }}
+                </x-jet-nav-link >
+                <!-- Add Post -->
                 <x-jet-nav-link class="pt-4 pb-3 m-3"  href="{{ url('/add_new_post')}}">
                     {{ __('Add Post') }}
                 </x-jet-nav-link >

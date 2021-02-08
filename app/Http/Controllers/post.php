@@ -58,8 +58,13 @@ class post extends Controller
         //     'messege'=>'Successfully Post Inserted',
         //     'alert-type'=>'success'
         //      );
-        $allpost['allpost']=DB::table('posts')->get();
-        return view('dashboard');
+       // $viwpost=DB::table('posts')->get();
+      //  return view('dashboard');
+    }
+
+     function allPost(){
+        $allpost=DB::table('posts')->get();
+        return view('post.all_post',compact('allpost'));
     }
     
 }
