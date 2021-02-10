@@ -50,7 +50,7 @@
                     @if (Route::has('login'))
                     <li class="nav-item">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                            <a href="{{ url('/all_post') }}" class="nav-link">Dashboard</a>
                             <!-- Admin -->
                             <!--                            
                             <a >{{ Auth::user()->name }}</a>

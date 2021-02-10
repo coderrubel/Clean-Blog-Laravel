@@ -22,7 +22,7 @@
     @endif
 
 
-    <form method="POST" action="/all_post" enctype="multipart/form-data">
+    <form method="POST" action="/add_new_post" enctype="multipart/form-data">
         @csrf    
     <div class="form-group">
         <label for="exampleFormControlInput1">Post Title</label>

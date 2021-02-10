@@ -8,18 +8,7 @@
 <x-dashboard_heder/>
 <div class="container">
 <div class="row my-2 d-flex justify-content-between">
-<div class="col-md-5">
-        <table class="table table-hover w-100">
-            <tr>
-                <th>Name</th>
-                <th>Slug</th>
-            </tr>
-            <tr>
-                <td>as</td>
-                <td>as</td>
-            </tr>
-        </table>
-    </div>
+
     <div class="col-md-6">
     <!-- Message -->
     @if ($errors->any())
@@ -47,7 +36,22 @@
     </div>
     </form>
     </div>
-        
+    <div class="col-md-5">
+        <table class="table table-striped w-100">
+        <thead class="thead-light">
+            <tr>
+                <th class="py-1 px-2">Name</th>
+                <th class="py-1 px-2">Slug</th>
+            </tr>
+        </thead>    
+            @foreach($allcategory as $row)
+            <tr>
+                <td class="py-1 px-2">{{$row->catName}}</td>
+                <td class="py-1 px-2">{{$row->slug}}</td>
+            </tr>
+            @endforeach
+        </table>
+</div>    
 
 </div>
 </div>

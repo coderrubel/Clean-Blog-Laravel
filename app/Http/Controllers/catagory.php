@@ -27,6 +27,12 @@ class catagory extends Controller
         $data['catName']=$request->catName;
         $data['slug']=$request->slug;
         $category=DB::table('catagorys')->insert($data);
-        return view('post.add_catagory');
+        return view('post.add_post');
+    }
+
+    // catagory view
+    function view_catagory(){
+        $allcategory=DB::table('catagorys')->get();
+        return view('post.add_catagory',compact('allcategory'));
     }
 }

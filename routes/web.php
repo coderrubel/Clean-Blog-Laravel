@@ -29,14 +29,17 @@ Route::get('/post',[page::class,'single_post']);
 // post
 Route::get('/add_new_post',[post::class,'add_post']);
 Route::get('/all_post',[post::class,'allPost']);
+Route::POST('/all_post',[post::class,'allPost']);
 Route::POST('/add_new_post',[post::class,'AddPost']);
+Route::get('/',[post::class,'ViewPost']);
 
 // Catagory
 Route::get('/add_catagory',[catagory::class,'add_catagory']);
 Route::POST('/add_catagory',[catagory::class,'AddCatagory']);
+Route::get('/add_catagory',[catagory::class,'view_catagory']);
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 

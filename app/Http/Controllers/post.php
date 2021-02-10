@@ -38,14 +38,14 @@ class post extends Controller
             $image_url=$upload_path.$image_full_name;
             $success=$image->move($upload_path,$image_full_name);
             $data['image']=$image_url;
-            // DB::table('posts')->insert($post);
+           //  DB::table('posts')->insert($post);
             //  $notification=array(
             //     'messege'=>'Successfully Post Inserted',
             //     'alert-type'=>'success'
             //      );
             //  return Redirect()->back()->with($notification);
     	}else{
-    		 DB::table('posts')->insert($post);
+    		// DB::table('posts')->insert($post);
     		//  $notification=array(
             //     'messege'=>'Successfully Post Inserted',
             //     'alert-type'=>'success'
@@ -53,13 +53,8 @@ class post extends Controller
             //  return Redirect()->back()->with($notification);
         }
         
-        $post_data=DB::table('posts')->insert($post);
-        // $post_data=array(
-        //     'messege'=>'Successfully Post Inserted',
-        //     'alert-type'=>'success'
-        //      );
-       // $viwpost=DB::table('posts')->get();
-      //  return view('dashboard');
+        $addpost=DB::table('posts')->insert($post);
+        return view('post.add_post');
     }
 
      function allPost(){
@@ -67,4 +62,8 @@ class post extends Controller
         return view('post.all_post',compact('allpost'));
     }
     
+    function ViewPost(){
+        $viewpost=DB::table('posts')->get();
+        return view('/index',compact('viewpost'));
+    }
 }
