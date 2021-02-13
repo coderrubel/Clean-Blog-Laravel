@@ -16,7 +16,7 @@ class post extends Controller
     function AddPost(Request $request){
 
         $request->validate([
-            'title' => 'required|min:2|max:35',
+            'title' => 'required|min:2|max:80',
             'details' => 'required',
             'author' => 'required',
             'date' => 'required',
@@ -37,7 +37,7 @@ class post extends Controller
             $upload_path='post_image/';
             $image_url=$upload_path.$image_full_name;
             $success=$image->move($upload_path,$image_full_name);
-            $data['image']=$image_url;
+            $post['image']=$image_url;
            //  DB::table('posts')->insert($post);
             //  $notification=array(
             //     'messege'=>'Successfully Post Inserted',
@@ -65,5 +65,11 @@ class post extends Controller
     function ViewPost(){
         $viewpost=DB::table('posts')->get();
         return view('/index',compact('viewpost'));
+    }
+
+    // Delete Post
+    public function DeletePost($id){
+        $delete=DB::table('posts')->where('id',$id)->Delete();
+        return Redirect()->back();
     }
 }

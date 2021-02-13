@@ -42,12 +42,14 @@
             <tr>
                 <th class="py-1 px-2">Name</th>
                 <th class="py-1 px-2">Slug</th>
+                <th class="py-1 px-2">Action</th>
             </tr>
         </thead>    
             @foreach($allcategory as $row)
             <tr>
                 <td class="py-1 px-2">{{$row->catName}}</td>
                 <td class="py-1 px-2">{{$row->slug}}</td>
+                <td class="py-1 px-2"><a href="{{ URL::to('delete_catagory',$row->id)}}" class="btn btn-danger p-1">Delete</a></td>
             </tr>
             @endforeach
         </table>

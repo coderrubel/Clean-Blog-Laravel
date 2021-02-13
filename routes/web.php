@@ -23,7 +23,8 @@ Route::get('/', function () {
 // Page
 Route::get('/support', [page::class, 'support']);
 Route::get('/about',[page::class,'about']);
-Route::get('/post',[page::class,'single_post']);
+// Route::get('/post/',[page::class,'single_post']);
+Route::get('/post/{id}',[page::class,'single_post']);
 
 
 // post
@@ -32,11 +33,13 @@ Route::get('/all_post',[post::class,'allPost']);
 Route::POST('/all_post',[post::class,'allPost']);
 Route::POST('/add_new_post',[post::class,'AddPost']);
 Route::get('/',[post::class,'ViewPost']);
+Route::get('/delete_post/{id}',[post::class,'DeletePost']);
 
 // Catagory
 Route::get('/add_catagory',[catagory::class,'add_catagory']);
 Route::POST('/add_catagory',[catagory::class,'AddCatagory']);
 Route::get('/add_catagory',[catagory::class,'view_catagory']);
+Route::get('/delete_catagory/{id}',[catagory::class,'delete_catagory']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', function () {
