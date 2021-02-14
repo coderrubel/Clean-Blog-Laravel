@@ -17,7 +17,7 @@ class post extends Controller
 
         $request->validate([
             'title' => 'required|min:2|max:80',
-            'details' => 'required',
+            'details' => 'required|min:5|max:5000',
             'author' => 'required',
             'date' => 'required',
             'image' => 'required | mimes:jpeg,jpg,png,PNG',

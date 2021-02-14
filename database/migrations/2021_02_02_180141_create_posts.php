@@ -17,7 +17,7 @@ class CreatePosts extends Migration
             $table->id();
             $table->string('title');
             $table->string('image')->default('Post Image');
-            $table->string('details');
+            $table->longText('details');
             $table->string('author');
             $table->date('date');
             $table->timestamps();

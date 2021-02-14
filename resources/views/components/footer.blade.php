@@ -36,13 +36,12 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Sweetalert2 -->
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="{{ URL::asset('sweetalert2.all.min.js') }}"></script>
     <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
-
+    <script src="{{ URL::asset('js/clean-blog.min.js') }}"></script>
 </body>
 
 </html>

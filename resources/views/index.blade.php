@@ -25,9 +25,7 @@
                         {{ $row->title}}
                         </h2>
                         <div class="post-img"><img src="{{ $row->image}}"></div>
-                        <h3 class="post-subtitle">
-                        {{$row->details}}
-                        </h3>
+                        <h3 class="post-subtitle"> {{substr($row->details,0,320,)}}</h3>
                     </a>
                     <p class="post-meta">Posted by
                         <a href="#">{{$row->author}}</a> on {{$row->date}}</p>

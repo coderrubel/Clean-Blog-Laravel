@@ -1,6 +1,6 @@
 <x-header/>
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('/{{($post->image)}}')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -21,13 +21,13 @@
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <p>{{($post->details)}}</p>
+            <div class="col-lg-10 col-md-10 mx-auto">
+                <p class="m-0 text-justify">{{($post->details)}}</p>
 
                 <!-- 
                     <h2 class="section-heading">The Final Frontier</h2>
 
-                <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched
+                <p>As we got further and further away, it  diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched
                     it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
 
                 <a href="#">
