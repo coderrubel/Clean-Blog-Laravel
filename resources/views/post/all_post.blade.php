@@ -13,11 +13,15 @@
  @foreach($allpost as $row)
     <div class="col-md-4 mb-3">
         <div class="card">
-            <img src="{{ $row->image}}" class="card-img-top" style="height: 200px;">
+            <img src="{{ URL::to($row->image)}}" class="card-img-top" style="height: 200px;">
             <div class="card-body">
                 <h5 class="card-title"> {{ $row->title}}</h5>
                 <p class="card-text" style="height: 120px; overflow: hidden;">{{$row->details}} ......</p>
-                <p class="d-flex justify-content-between text-info"><span>Author: {{$row->author}}</span> <span>Date: {{$row->date}}</span></p>
+                <ul class="text-info">
+                    <li>Catagory: {{$row->catName}}</li>
+                    <li>Author: {{$row->author}}</li>
+                    <li>Date: {{$row->date}}</li>
+                </ul>
                 <a href="#" class="btn btn-primary">Edit</a>
                 <a href="{{URL::to('delete_post',$row->id)}}" class="btn btn-danger">Delet</a>
             </div>

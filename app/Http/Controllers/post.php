@@ -10,13 +10,15 @@ class post extends Controller
 
     // Add Posts
      function add_post(){
-        return view('post.add_post');
+        $cat=DB::table('catagorys')->get(); 
+        return view('post.add_post',compact('cat'));
     }
     // Add Post
     function AddPost(Request $request){
 
         $request->validate([
             'title' => 'required|min:2|max:80',
+            'catagory' => 'required',
             'details' => 'required|min:5|max:5000',
             'author' => 'required',
             'date' => 'required',
@@ -25,20 +27,22 @@ class post extends Controller
 
         $post=array();
         $post['title']=$request->title;
+        $post['catagory']=$request->catagory;
         $post['details']=$request->details;
         $post['author']=$request->author;
         $post['date']=$request->date;
 
         $image=$request->file('image');
     	if ($image) {
-    		$image_name=hexdec(uniqid());
+            // $image_name=hexdec(uniqid());
+            $image_name=$image->getFilename();
             $ext=strtolower($image->getClientOriginalExtension());
             $image_full_name=$image_name.'.'.$ext;
             $upload_path='post_image/';
             $image_url=$upload_path.$image_full_name;
             $success=$image->move($upload_path,$image_full_name);
             $post['image']=$image_url;
-           //  DB::table('posts')->insert($post);
+            //  DB::table('posts')->insert($post);
             //  $notification=array(
             //     'messege'=>'Successfully Post Inserted',
             //     'alert-type'=>'success'
@@ -54,16 +58,20 @@ class post extends Controller
         }
         
         $addpost=DB::table('posts')->insert($post);
-        return view('post.add_post');
+        return Redirect()->back();
     }
 
      function allPost(){
-        $allpost=DB::table('posts')->get();
+        $allpost=DB::table('posts')
+        ->join('catagorys','posts.catagory','catagorys.id')
+        ->select('posts.*','catagorys.catName')->get();
         return view('post.all_post',compact('allpost'));
     }
     
     function ViewPost(){
-        $viewpost=DB::table('posts')->get();
+        $viewpost=DB::table('posts')
+        ->join('catagorys','posts.catagory','catagorys.id')
+        ->select('posts.*','catagorys.catName')->get();
         return view('/index',compact('viewpost'));
     }
 

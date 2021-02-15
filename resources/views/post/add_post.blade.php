@@ -31,9 +31,10 @@
     
     <div class="form-group">
         <label for="exampleFormControlSelect1">Post Catagory</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
+        <select class="form-control" id="exampleFormControlSelect1" name="catagory">
+            @foreach($cat as $row)
+            <option value="{{$row->id}}">{{$row->catName}}</option>
+            @endforeach
         </select>
     </div>
 

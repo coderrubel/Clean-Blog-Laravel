@@ -24,11 +24,11 @@
                         <h2 class="post-title">
                         {{ $row->title}}
                         </h2>
-                        <div class="post-img"><img src="{{ $row->image}}"></div>
+                        <div class="post-img"><img src="{{ URL::to($row->image)}}"></div>
                         <h3 class="post-subtitle"> {{substr($row->details,0,320,)}}</h3>
-                    </a>
-                    <p class="post-meta">Posted by
-                        <a href="#">{{$row->author}}</a> on {{$row->date}}</p>
+                    
+                    <p class="post-meta">Posted by &nbsp; <a href="#">{{$row->author}}</a>&nbsp; on &nbsp;<span class="text-body">{{$row->date}} </span>&nbsp;  Catagory: <span class="text-body">{{$row->catName}}</span></p>
+                </a>
                 </div>
                 <hr>
                 @endforeach
