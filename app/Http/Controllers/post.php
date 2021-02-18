@@ -80,4 +80,11 @@ class post extends Controller
         $delete=DB::table('posts')->where('id',$id)->Delete();
         return Redirect()->back();
     }
+
+    // Edit Post
+    public function EditPost($id){
+        $edit_post=DB::table('posts')->where('id',$id)->first();
+        $edit_cat=DB::table('catagorys')->get();
+        return view('post.edit_post',compact('edit_post','edit_cat'));
+    }
 }

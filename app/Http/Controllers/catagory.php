@@ -41,4 +41,10 @@ class catagory extends Controller
         $delete=DB::table('catagorys')->where('id',$id)->Delete();
         return Redirect()->back();
     }
+
+    // Edit Catagory
+    public function edit_catagory($id){
+        $edit=DB::table('catagorys')->where('id',$id)->first();
+        return view('catagory.edit_catagory',compact('edit'));
+    }
 }

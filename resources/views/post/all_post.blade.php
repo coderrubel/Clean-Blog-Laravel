@@ -22,7 +22,7 @@
                     <li>Author: {{$row->author}}</li>
                     <li>Date: {{$row->date}}</li>
                 </ul>
-                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="{{URL::to('edit_post',$row->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{URL::to('delete_post',$row->id)}}" class="btn btn-danger">Delet</a>
             </div>
         </div>
