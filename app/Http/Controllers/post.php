@@ -42,19 +42,19 @@ class post extends Controller
             $image_url=$upload_path.$image_full_name;
             $success=$image->move($upload_path,$image_full_name);
             $post['image']=$image_url;
-            //  DB::table('posts')->insert($post);
-            //  $notification=array(
-            //     'messege'=>'Successfully Post Inserted',
-            //     'alert-type'=>'success'
-            //      );
-            //  return Redirect()->back()->with($notification);
+             DB::table('posts')->insert($post);
+             $notification=array(
+                'messege'=>'Successfully Post Inserted',
+                'alert-type'=>'success'
+                 );
+             return Redirect()->back()->with($notification);
     	}else{
-    		// DB::table('posts')->insert($post);
-    		//  $notification=array(
-            //     'messege'=>'Successfully Post Inserted',
-            //     'alert-type'=>'success'
-            //      );
-            //  return Redirect()->back()->with($notification);
+    		DB::table('posts')->insert($post);
+    		 $notification=array(
+                'messege'=>'Successfully Post Inserted',
+                'alert-type'=>'success'
+                 );
+             return Redirect()->back()->with($notification);
         }
         
         $addpost=DB::table('posts')->insert($post);
@@ -71,7 +71,7 @@ class post extends Controller
     function ViewPost(){
         $viewpost=DB::table('posts')
         ->join('catagorys','posts.catagory','catagorys.id')
-        ->select('posts.*','catagorys.catName')->get();
+        ->select('posts.*','catagorys.catName')->paginate(4);
         return view('/index',compact('viewpost'));
     }
 
@@ -86,5 +86,54 @@ class post extends Controller
         $edit_post=DB::table('posts')->where('id',$id)->first();
         $edit_cat=DB::table('catagorys')->get();
         return view('post.edit_post',compact('edit_post','edit_cat'));
+    }
+
+    //Updata Post
+    public function UpdatePost(Request $request, $id){
+        $request->validate([
+            'title' => 'required|min:2|max:80',
+            'catagory' => 'required',
+            'details' => 'required|min:5|max:5000',
+            'author' => 'required',
+            'date' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,PNG',
+        ]);
+
+        $post=array();
+        $post['title']=$request->title;
+        $post['catagory']=$request->catagory;
+        $post['details']=$request->details;
+        $post['author']=$request->author;
+        $post['date']=$request->date;
+
+        $image=$request->file('image');
+    	if ($image) {
+            // $image_name=hexdec(uniqid());
+            $image_name=$image->getFilename();
+            $ext=strtolower($image->getClientOriginalExtension());
+            $image_full_name=$image_name.'.'.$ext;
+            $upload_path='post_image/';
+            $image_url=$upload_path.$image_full_name;
+            $success=$image->move($upload_path,$image_full_name);
+            $post['image']=$image_url;
+            unlink($request->old_photo);
+             DB::table('posts')->where('id',$id)->update($post);
+             $notification=array(
+                'messege'=>'Successfully Post Update',
+                'alert-type'=>'success'
+                 );
+                 return Redirect()->back()->with($notification);
+    	}else{
+            $post['image']=$request->old_photo;
+    		DB::table('posts')->where('id',$id)->update($post);
+    		 $notification=array(
+                'messege'=>'Successfully Post Update',
+                'alert-type'=>'success'
+                 );
+                 return Redirect()->back()->with($notification);
+        }
+        
+        $addpost=DB::table('posts')->update($post);
+        return Redirect()->back();
     }
 }

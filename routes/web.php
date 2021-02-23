@@ -35,6 +35,7 @@ Route::POST('/add_new_post',[post::class,'AddPost']);
 Route::get('/',[post::class,'ViewPost']);
 Route::get('/delete_post/{id}',[post::class,'DeletePost']);
 Route::get('/edit_post/{id}',[post::class,'EditPost']);
+Route::POST('/update/{id}',[post::class,'UpdatePost']);
 
 // Catagory
 Route::get('/add_catagory',[catagory::class,'add_catagory']);

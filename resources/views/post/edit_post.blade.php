@@ -22,7 +22,7 @@
     @endif
 
 
-    <form method="POST" action="/add_new_post" enctype="multipart/form-data">
+    <form method="POST" action="{{url('/update/'.$edit_post->id)}}" enctype="multipart/form-data">
         @csrf    
     <div class="form-group">
         <label for="exampleFormControlInput1">Post Title</label>
@@ -33,7 +33,7 @@
         <label for="exampleFormControlSelect1">Post Catagory</label>
         <select class="form-control" id="exampleFormControlSelect1" name="catagory">
             @foreach($edit_cat as $row)
-            <option value="{{$row->id}}" <?php if($row->id == $edit_post->id) echo "selected"; ?>>{{$row->catName}}</option>
+            <option value="{{$row->id}}" <?php if($row->id == $edit_post->id) echo "selected"; ?>  >{{$row->catName}}</option>
             @endforeach
         </select>
     </div>
@@ -46,6 +46,7 @@
         <span>
             <label for="exampleFormControlFile1">Post Image</label>
             <img src="{{URL::to($edit_post->image)}}" style="widht:70px; height:70px; display:inline-block;">
+            <input type="hidden" name="old_photo" value="{{ $edit_post->image }}">
         </span>
         
 
@@ -63,7 +64,7 @@
         <input type="date" class="form-control" id="exampleFormControlInput1" name="date" value="{{($edit_post->date)}}">
     </div>
     <div class="form-group">
-        <input type="submit" class="form-control btn-success btn-sm w-25 m-auto" value="Update Post">
+        <input type="submit" class="form-control btn-success btn-sm w-25 m-auto" value="Update">
     </div>
     </form>
     </div>
