@@ -77,7 +77,12 @@ class post extends Controller
 
     // Delete Post
     public function DeletePost($id){
+        $delete_imgae=DB::table('posts')->where('id',$id)->first();
+        $image=$delete_imgae->image;
         $delete=DB::table('posts')->where('id',$id)->Delete();
+        if($delete){
+            unlink($image);
+        }
         return Redirect()->back();
     }
 

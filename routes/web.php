@@ -43,7 +43,7 @@ Route::POST('/add_catagory',[catagory::class,'AddCatagory']);
 Route::get('/add_catagory',[catagory::class,'view_catagory']);
 Route::get('/delete_catagory/{id}',[catagory::class,'delete_catagory']);
 Route::get('/edit_catagory/{id}',[catagory::class,'edit_catagory']);
-
+Route::POST('/update_catagory/{id}',[catagory::class,'update_catagory']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', function () {
     return view('dashboard');

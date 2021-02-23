@@ -21,7 +21,7 @@
     </div>
     @endif
    
-    <form method="POST" action="/add_catagory">
+    <form method="POST" action="{{url('/update_catagory/'.$edit->id)}}">
         @csrf
     <div class="form-group">
         <label for="exampleFormControlInput1">Catagory Name</label>

@@ -47,4 +47,17 @@ class catagory extends Controller
         $edit=DB::table('catagorys')->where('id',$id)->first();
         return view('catagory.edit_catagory',compact('edit'));
     }
+
+    // Update Catagory
+    public function update_catagory(Request  $request, $id){
+        $request->validate([
+            'catName' => 'required',
+            'slug' => 'required',
+        ]);
+        $data=array();
+        $data['catName']=$request->catName;
+        $data['slug']=$request->slug;
+        $category=DB::table('catagorys')->where('id',$id)->update($data);
+        return Redirect('/add_catagory');
+    }
 }

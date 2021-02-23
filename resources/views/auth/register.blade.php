@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Refister To Clean Blog</h1>
+            <h1>Register To Clean Blog</h1>
             <span class="subheading">Have An Account? <a href="{{ route('login') }}"> Login </a></span>
           </div>
         </div>

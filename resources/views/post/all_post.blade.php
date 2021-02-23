@@ -16,7 +16,7 @@
             <img src="{{ URL::to($row->image)}}" class="card-img-top" style="height: 200px;">
             <div class="card-body">
                 <h5 class="card-title"> {{ $row->title}}</h5>
-                <p class="card-text" style="height: 120px; overflow: hidden;">{{$row->details}} ......</p>
+                <p class="card-text text-justify">{{substr($row->details,0,150)}}</p>
                 <ul class="text-info">
                     <li>Catagory: {{$row->catName}}</li>
                     <li>Author: {{$row->author}}</li>
